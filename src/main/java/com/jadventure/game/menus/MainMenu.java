@@ -10,6 +10,10 @@ import com.jadventure.game.JAdventure;
 import com.jadventure.game.QueueProvider;
 import com.jadventure.game.entities.Player;
 
+import java.io.*; //importing for listStats(String fileName) method
+import com.google.gson.JsonParser; 
+import com.google.gson.JsonObject;
+
 /**
  * The first menu displayed on user screen
  * @see JAdventure
@@ -139,12 +143,38 @@ public class MainMenu extends Menus implements Runnable {
             for (String name : profiles) {
                 if (new File("json/profiles/" + name).isDirectory()) {
                     QueueProvider.offer("  " + name);
+                    listStats("json/profiles/" + name + "/" + name + "_profile.json");
                 }
                     i += 1;
             }
             QueueProvider.offer("\nWhat is the name of the avatar you want to select? Type 'back' to go back");
         } catch (NullPointerException e) {
             QueueProvider.offer("No profiles found. Type \"back\" to go back.");
+        }
+    }
+
+    private static void listStats(String fileName) {
+        JsonParser parser = new JsonParser();
+        try {
+            Reader reader = new FileReader(fileName);
+            JsonObject json = parser.parse(reader).getAsJsonObject();
+            QueueProvider.offer("Class Type: "+json.get("type").getAsString());
+            QueueProvider.offer("Max Health: "+json.get("healthMax").getAsInt());
+            QueueProvider.offer("Current Health: "+json.get("health").getAsInt());
+            QueueProvider.offer("Armor: "+json.get("armour").getAsInt());
+            QueueProvider.offer("Damage: "+json.get("damage").getAsInt());
+            QueueProvider.offer("Level: "+json.get("level").getAsInt());
+            QueueProvider.offer("XP: "+json.get("xp").getAsInt());
+            QueueProvider.offer("Strength: "+json.get("strength").getAsInt());
+            QueueProvider.offer("Intelligence: "+json.get("intelligence").getAsInt());
+            QueueProvider.offer("Dexterity: "+json.get("dexterity").getAsInt());
+            QueueProvider.offer("Luck: "+json.get("luck").getAsInt());
+            QueueProvider.offer("Stealth: "+json.get("stealth").getAsInt());
+            //HashMap<String, Integer> charLevels = new Gson().fromJson(json.get("types"), new TypeToken<HashMap<String, Integer>>(){}.getType());
+        } catch (FileNotFoundException ex) {
+            QueueProvider.offer( "Unable to open file '" + fileName + "'.");
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 }
