@@ -42,11 +42,17 @@ public enum CommandCollection {
     private final static Map<String, String> DIRECTION_LINKS = new HashMap<String,String>();
     static {
         DIRECTION_LINKS.put("n", "north");
+        DIRECTION_LINKS.put("north", "north");
         DIRECTION_LINKS.put("s", "south");
+        DIRECTION_LINKS.put("south", "south");
         DIRECTION_LINKS.put("e", "east");
+        DIRECTION_LINKS.put("east", "east");
         DIRECTION_LINKS.put("w", "west");
+        DIRECTION_LINKS.put("west", "west");
         DIRECTION_LINKS.put("u", "up");
+        DIRECTION_LINKS.put("up", "up");
         DIRECTION_LINKS.put("d", "down");
+        DIRECTION_LINKS.put("down", "down");
     }
 
     public static CommandCollection getInstance() {
