@@ -141,7 +141,8 @@ public class MainMenu extends Menus implements Runnable {
         
             int i = 1;
             for (String name : profiles) {
-                if (new File("json/profiles/" + name).isDirectory()) {
+                if (new File("json/profiles/" + name).isDirectory())
+                    if(!name.equals("test") && !name.equals("Recruit") && !name.equals("player1")) {
                     QueueProvider.offer("  " + name);
                     listStats("json/profiles/" + name + "/" + name + "_profile.json");
                 }
@@ -158,19 +159,19 @@ public class MainMenu extends Menus implements Runnable {
         try {
             Reader reader = new FileReader(fileName);
             JsonObject json = parser.parse(reader).getAsJsonObject();
-            QueueProvider.offer("Class Type: "+json.get("type").getAsString());
-            QueueProvider.offer("Max Health: "+json.get("healthMax").getAsInt());
-            QueueProvider.offer("Current Health: "+json.get("health").getAsInt());
-            QueueProvider.offer("Armor: "+json.get("armour").getAsInt());
-            QueueProvider.offer("Damage: "+json.get("damage").getAsInt());
-            QueueProvider.offer("Level: "+json.get("level").getAsInt());
-            QueueProvider.offer("XP: "+json.get("xp").getAsInt());
-            QueueProvider.offer("Strength: "+json.get("strength").getAsInt());
-            QueueProvider.offer("Intelligence: "+json.get("intelligence").getAsInt());
-            QueueProvider.offer("Dexterity: "+json.get("dexterity").getAsInt());
-            QueueProvider.offer("Luck: "+json.get("luck").getAsInt());
-            QueueProvider.offer("Stealth: "+json.get("stealth").getAsInt());
-            //HashMap<String, Integer> charLevels = new Gson().fromJson(json.get("types"), new TypeToken<HashMap<String, Integer>>(){}.getType());
+            QueueProvider.offer(" ");
+            QueueProvider.offer("   Class Type: "+json.get("type").getAsString());
+            QueueProvider.offer("   Max Health: "+json.get("healthMax").getAsInt());
+            QueueProvider.offer("   Current Health: "+json.get("health").getAsInt());
+            QueueProvider.offer("   Armor: "+json.get("armour").getAsInt());
+            QueueProvider.offer("   Damage: "+json.get("damage").getAsInt());
+            QueueProvider.offer("   Level: "+json.get("level").getAsInt());
+            QueueProvider.offer("   XP: "+json.get("xp").getAsInt());
+            QueueProvider.offer("   Strength: "+json.get("strength").getAsInt());
+            QueueProvider.offer("   Intelligence: "+json.get("intelligence").getAsInt());
+            QueueProvider.offer("   Dexterity: "+json.get("dexterity").getAsInt());
+            QueueProvider.offer("   Luck: "+json.get("luck").getAsInt());
+            QueueProvider.offer("   Stealth: "+json.get("stealth").getAsInt()+"\n");
         } catch (FileNotFoundException ex) {
             QueueProvider.offer( "Unable to open file '" + fileName + "'.");
         } catch (IOException ex) {
