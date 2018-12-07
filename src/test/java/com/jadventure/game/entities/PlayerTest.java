@@ -29,6 +29,14 @@ public class PlayerTest {
         int actual = player.getArmour();
         assertEquals("Failure - new sewer rat not properly created", expected, actual);
     }
+    
+    @Test
+    public void newPunisher() {
+        Player player = Player.getInstance("punisher");
+        int expected = 2;
+        int actual = player.getArmour();
+        assertEquals("Failure - new punisher not properly created", expected, actual);
+    }
 
     @Test
     public void oldPlayer() {

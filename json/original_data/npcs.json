@@ -15,7 +15,8 @@
       "gold": 100,
       "allies": [
 	"Recruit",
-	"Sewer Rat"
+	"Sewer Rat",
+	"Punisher"
       ],
       "enemies": [],
       "tradingEmphasis": [ "f" ],
@@ -47,6 +48,13 @@
           "condition": "char type=Recruit",
           "player":"Where should I go?",
           "text":"Hurry upstairs! This is no place for you and I'm sure your superiors will be wondering where you are.",
+          "response":[4,5],
+          "action": "none"
+        },
+        {
+          "condition": "char type=Punisher",
+          "player":"Where should I go?",
+          "text":"You're the best. As a punisher, you are the most powerful. You're gonna live.'",
           "response":[4,5],
           "action": "none"
         },
@@ -108,7 +116,8 @@
       	"Sewer Rat"
       ],
       "enemies": [
-      	"Recruit"
+      	"Recruit",
+      	"Punisher"
       ],
       "items":["pmil1"]
     },
@@ -234,7 +243,8 @@
       ],
       "enemies": [
       	"Recruit",
-	"Syndicate Member"
+	"Syndicate Member",
+		"Punisher"
       ],
       "tradingEmphasis": [ "w", "f" ],
       "sellLimit": 6,
@@ -317,7 +327,56 @@
       	"Recruit"
       ],
       "enemies": [
-      	"Sewer Rat"
+      	"Sewer Rat",
+      	"Punisher"
+      ],
+      "items":["pmil1"]
+    },
+    "punisher": {
+      "name": "Punisher",
+      "health": 100,
+      "healthMax": 100,
+      "damage": 80,
+      "armour": 2,
+      "level": 1,
+      "xp": 0,
+      "strength": 3,
+      "intelligence": 2,
+      "dexterity": 5,
+      "stealth": 3,
+      "location": [
+        {
+          "head": "empty"
+        },
+        {
+          "leftArm": "empty"
+        },
+        {
+          "chest": "empty"
+        },
+        {
+          "rightArm": "empty"
+        },
+        {
+          "legs": "empty"
+        },
+        {
+          "boots": "empty"
+        },
+        {
+          "leftHand": "hands"
+        },
+        {
+          "rightHand": "hands"
+        }
+      ],
+      "intro": "Hey... you the best?\n*How are you?*\nHey, mate, can you hear meeee? you need to wake up to kill them all. Follow me as soon as you can.\nBy the way, I'm Thorall. What's your name?",
+      "allies": [
+      	"Punisher"
+      ],
+      "enemies": [
+      	"Sewer Rat",
+      	"Recruit"
       ],
       "items":["pmil1"]
     }

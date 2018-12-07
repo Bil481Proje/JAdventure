@@ -64,6 +64,7 @@ public class Player extends Entity {
     protected static void setUpCharacterLevels() {
         characterLevels.put("Sewer Rat", 5);
         characterLevels.put("Recruit", 3);
+        characterLevels.put("Punisher", 3);
         characterLevels.put("Syndicate Member", 4);
         characterLevels.put("Brotherhood Member", 4);
     }
@@ -213,6 +214,8 @@ public class Player extends Entity {
                 player.type = "Recruit";
             } else if (player.getName().equals("Sewer Rat")) {
                 player.type = "Sewer Rat";
+            }  else if (player.getName().equals("Punisher")) {
+            	player.type = "Punisher";
             } else {
                 QueueProvider.offer("Not a valid class");
             }

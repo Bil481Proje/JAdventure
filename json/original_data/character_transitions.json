@@ -19,5 +19,14 @@
   "Recruit": {
     "kill": {
     }
+  },
+  "Punisher": {
+    "kill": {
+    "Brotherhood Member": {
+        "Sewer Rat": -1,
+        "Brotherhood Member": -1,
+        "Syndicate Member": 1
+        }
+    }
   }
 }
