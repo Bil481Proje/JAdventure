@@ -33,7 +33,7 @@ public class PlayerTest {
     @Test
     public void oldPlayer() {
         Player player = Player.load("test");
-        String expected = "test";
+        String expected = "default";
         String actual = player.getName();
         assertEquals("Failure - old player not properly loaded", expected, actual);
     }
